@@ -364,7 +364,10 @@
     \end{frame}
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
-        A transition $g'(s, (k, p)) = r$ is called an \underline{$a$-transition} if $t_k = a$. Each $s$ can have at most one $a$-transition $\forall a \in \Sigma$. \\
+        \begin{definitionblock}{$a$-transition}
+            A transition $g'(s, (k, p)) = r$ is called an \underline{$a$-transition} if $t_k = a$. 
+        \end{definitionblock}
+        Each $s$ can have at most one $a$-transition $\forall a \in \Sigma$. \\
         \hfill \break
         Let $\Sigma = \{a_1, a_2, \ldots, a_m \}$. \\
         $g(\bot, a_j) = root$ is represented as $g(\bot, (-j, -j)) = root $ for $ j = 1, \ldots, m$.\\
