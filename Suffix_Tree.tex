@@ -360,7 +360,7 @@
         \end{definitionblock}
         Such pointers exist because there must be a suffix $T_i$ s.t. the transition path for $T_i$ in $STrie(T)$ goes through $s$ and $r$ \\
         \hfill \break
-        {\color{red}Select the smallest such $i$, and let $k$ and $p$ point to the substring of this $T_i$ that is spelled out by the transition path from $s$ to $r$}
+        \alert{Select the smallest such $i$, and let $k$ and $p$ point to the substring of this $T_i$ that is spelled out by the transition path from $s$ to $r$}
     \end{frame}
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
@@ -381,7 +381,7 @@
         $\Rightarrow Q'$ has to contain at most $|T| - 1$ branching states (when $|T| > 1$). \\
         \hfill \break
         $\therefore$ There can be at most $2|T| - 2$ transitions between the states in $Q'$ , each taking a constant space because of using pointers instead of an explicit string. \\
-        {\color{red}$\Rightarrow$ In implementation, $g'$ can take $\mathcal{O}(|T|)$ space}
+        \alert{$\Rightarrow$ In implementation, $g'$ can take $\mathcal{O}(|T|)$ space}
     \end{frame}
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
@@ -409,8 +409,8 @@
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
         \begin{definitionblock}{Reference pair}
             $r = (s, w)$ \\
-            Refer to an {\color{red}explicit or implicit} state $r$ of a suffix tree by a \underline{reference pair} $(s, w)$ where \\
-            $s$ is some {\color{red}explicit} state that is an ancestor of $r$ and \\
+            Refer to an \alert{explicit or implicit} state $r$ of a suffix tree by a \underline{reference pair} $(s, w)$ where \\
+            $s$ is some \alert{explicit} state that is an ancestor of $r$ and \\
             $w$ is the string spelled out by the transitions from $s$ to $r$ in the corresponding suffix trie
         \end{definitionblock}
         \begin{definitionblock}{Canonical reference pair}
@@ -463,16 +463,16 @@
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
         \begin{definitionblock}{Active point}
-            $s_j$ is the \underline{active point} of ${\color{red}STrie}(T^{i-1})$
+            $s_j$ is the \underline{active point} of $\alert{STrie}(T^{i-1})$
         \end{definitionblock}
         \begin{definitionblock}{End point}
-            $s_{j'}$ is the \underline{end point} of ${\color{red}STrie}(T^{i-1})$
+            $s_{j'}$ is the \underline{end point} of $\alert{STrie}(T^{i-1})$
         \end{definitionblock}
         These states are present, explicitly or implicitly, in $STree(T^{i-1})$ \\
         \hfill \break
         Lemma 1 says \\
-        \circled{1} {\color{red}Leaf} states on the boundary path before the active point $s_j$ get a transition that expands an existing branch of the {\color{red}trie}. \\
-        \circled{2} {\color{red}Non-leaf} states from the active point $s_j$ to end point $s_{j'}$ ($s_{j'}$ excluded) get a transition that initiates a new branch
+        \circled{1} \alert{Leaf} states on the boundary path before the active point $s_j$ get a transition that expands an existing branch of the \alert{trie}. \\
+        \circled{2} \alert{Non-leaf} states from the active point $s_j$ to end point $s_{j'}$ ($s_{j'}$ excluded) get a transition that initiates a new branch
     \end{frame}
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
@@ -629,7 +629,7 @@
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
         \begin{factblock}{Fact 2}
-            $s_{j'}$ is the end point of $STree(T^{i-1})$ \\ $\Leftrightarrow s_{j'} = \overline{t_{j'}\cdots t_{i-1}}$ where $t_{j'}\cdots t_{i-1}$ is the longest suffix of $T^{i-1}$ s.t. $t_{j'}\cdots {\color{red}t_{i-1}t_i}$ is a substring of $T^{i-1}$ \\
+            $s_{j'}$ is the end point of $STree(T^{i-1})$ \\ $\Leftrightarrow s_{j'} = \overline{t_{j'}\cdots t_{i-1}}$ where $t_{j'}\cdots t_{i-1}$ is the longest suffix of $T^{i-1}$ s.t. $t_{j'}\cdots \alert{t_{i-1}t_i}$ is a substring of $T^{i-1}$ \\
             \hfill \break
             $\because$ 
             \begin{itemize}
@@ -643,11 +643,11 @@
         Combining the previous 2 facts gives \\
         \hfill \break
         $s_{j'}$ is the end point of $STree(T^{i-1})$ \\
-        $\Rightarrow t_{j'}\cdots t_{i-1}{\color{red}t_i}$ is the longest suffix of $T^{\color{red}i}$ that occurs at least twice in $T^{\color{red}i}$ \\
+        $\Rightarrow t_{j'}\cdots t_{i-1}\alert{t_i}$ is the longest suffix of $T^{\alert{i}}$ that occurs at least twice in $T^{\alert{i}}$ \\
         $\Leftrightarrow$ state $g'(s_{j'}, t_i)$ is the active point of $STree(T^{i})$ \\
         \hfill \break
-        $\because t_{j'}\cdots t_{i-1}{\color{red}t_i}$ is a substring of $T^{\color{red}i-1}$ \\
-        $\Rightarrow t_{j'}\cdots t_{i-1}t_i$ occurs at least twice in $T^{\color{red}i}$
+        $\because t_{j'}\cdots t_{i-1}\alert{t_i}$ is a substring of $T^{\alert{i-1}}$ \\
+        $\Rightarrow t_{j'}\cdots t_{i-1}t_i$ occurs at least twice in $T^{\alert{i}}$
     \end{frame}
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
