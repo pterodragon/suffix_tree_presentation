@@ -377,7 +377,7 @@
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
         $STree(T)$ is of linear size in $|T|$. \\
-        $\because Q'$ has at most $|T|$ leaves ($\leq 1$ leaf for each nonempty suffix) \\
+        $\because Q'$ has at most $|T|$ leaves (at most $1$ leaf for each nonempty suffix) \\
         $\Rightarrow Q'$ has to contain at most $|T| - 1$ branching states (when $|T| > 1$). \\
         \hfill \break
         $\therefore$ There can be at most $2|T| - 2$ transitions between the states in $Q'$ , each taking a constant space because of using pointers instead of an explicit string. \\
@@ -441,7 +441,7 @@
         The algorithm for constructing $STree(T)$ will be patterned after Algorithm~\ref{alg:1}. \\
         Now, we make precise what Algorithm~\ref{alg:1} does. \\
         \hfill \break
-        Let $s_1 = \overline{t_1\cdots t_{i-1}},s_2=\overline{t_2\cdots t_{i-1}},s_3,\ldots,s_i=root,s_{i+1}=\bot$ be the states of $STrie(T^{t-1})$ on the \underline{boundary path}. \\
+        Let $s_1 = \overline{t_1\cdots t_{i-1}},s_2=\overline{t_2\cdots t_{i-1}},s_3,\ldots,s_i=root,s_{i+1}=\bot$ be the states of $STrie(T^{i-1})$ on the \underline{boundary path}. \\
         \hfill \break
         Let $j$ be the smallest index s.t. $s_j$ is not a leaf, and \\
         let $j'$ be the smallest index s.t. $s_{j'}$ has a $t_i$-transition. \\
