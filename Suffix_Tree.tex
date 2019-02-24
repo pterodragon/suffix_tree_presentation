@@ -541,12 +541,12 @@
             $(end\mhyphen point,r) \leftarrow test \mhyphen and \mhyphen split(s, (k, i - 1)),t_i)$\;
             \While {\Not $(end\mhyphen point)$}{
                 create new transition $g'(r, (i, \infty)) = r'$ where $r'$ is a new state\;
-                \lIf{$oldr \neq root$}{create new suffix link $f'(oldr) = r'$}
+                \lIf{$oldr \neq root$}{create new suffix link $f'(oldr) = r$}
                 $oldr \leftarrow r$\;
                 $(s, k) \leftarrow canonize(f'(s), (k, i-1))$\;
                 $(end\mhyphen point, r) \leftarrow test\mhyphen and \mhyphen split(s,(k, i-1),t_i)$\;
             }
-            \lIf{$oldr \neq root$}{create new suffix link $f'(oldr) = s'$}
+            \lIf{$oldr \neq root$}{create new suffix link $f'(oldr) = s$}
             \Return $(s, k)$.
         \end{procedure}
     \end{frame}
