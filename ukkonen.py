@@ -87,7 +87,7 @@ class SuffixTree:
         # self.graph.add_node(self.root)
 
         self.gp = {self.root: {}}  # g': transition function
-        self.graph.add_edge(self.bottom, self.root, label='\\Sigma')
+        self.graph.add_edge(self.bottom, self.root, label='$\\Sigma$')
         self.fp = {self.root: self.bottom}  # f': suffix function
         self.suffix_links[self.root] = self.bottom
         self.T = T
@@ -173,7 +173,9 @@ class SuffixTree:
             self.gp[s][kp] = r
         else:
             self.gp[s] = {kp: r}
-        self.graph.add_edge(s, r, label=self.T[kp[0]:kp[1]+1])
+        self.graph.add_edge(
+            s, r,
+            label=f'${self.T[kp[0]:kp[1]+1]}$ \\\\ $({kp[0]+1},{kp[1]+1})$')
 
     def getTransition(self, s, t):
         # Return the t-transition from s assuming it exists.
@@ -320,15 +322,20 @@ class SuffixTree:
 
         def dfs_visit(nx_node, tikz_node, no_node_text=False):
             nx_childs_info = self.graph[nx_node]
-            for nx_node_child in sorted(adj_list.get(nx_node, [])):
+            nx_node_childs = adj_list.get(nx_node, [])
+            shift_start = (len(nx_node_childs) - 1) * -5
+            for i, nx_node_child in enumerate(sorted(nx_node_childs)):
+                shift = shift_start + 10 * i
                 new_tikz_child = TikzChild(TikzNode(
                     text='' if no_node_text else nx_node_child,
                     label=sanitize(nx_node_child),
                     edge_from_parent=True,
                     edge_node=TikzNode(
-                        text=f"${nx_childs_info[nx_node_child][0]['label']}$",
-                        attr=['rectangle', 'draw=green', 'fill=white'])
-                ))
+                        text=f"{nx_childs_info[nx_node_child][0]['label']}",
+                        attr=['rectangle', 'draw=green', 'fill=white'] +
+                        ([f'xshift={shift}pt'] if shift else[]) +
+                        (['align=center']
+                            if nx_node_child != '#' else []))))
                 tikz_node.childs.append(new_tikz_child)
                 dfs_visit(nx_node_child, new_tikz_child.node, no_node_text)
         adj_list = {x: list(y.values()) for x, y in self.gp.items()}

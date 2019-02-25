@@ -8,7 +8,7 @@
             \tikzstyle{level 1}=[sibling distance=100pt]
             \tikzstyle{level 2}=[level distance=50pt,sibling distance=120pt]
             \tikzstyle{level 3}=[sibling distance=50pt]
-\node[yshift=-30pt](bottom)at (current page.north) {  } child { node(q) {  } child { node(q0cw) {  } edge from parent node[rectangle,draw=green,fill=white] { $cacao$ }   } child { node(q1aw) {  } edge from parent node[rectangle,draw=green,fill=white] { $acao$ }   }edge from parent node[rectangle,draw=green,fill=white] { $\Sigma$ }   } ;\draw[style=sll](q) to (bottom);
+\node[yshift=-30pt](bottom)at (current page.north) {  } child { node(q) {  } child { node(q0cw) {  } edge from parent node[rectangle,draw=green,fill=white,xshift=-5pt,align=center] { $cacao$ \\ $(1,5)$ }   } child { node(q1aw) {  } edge from parent node[rectangle,draw=green,fill=white,xshift=5pt,align=center] { $acao$ \\ $(2,5)$ }   }edge from parent node[rectangle,draw=green,fill=white] { $\Sigma$ }   } ;\draw[style=sll](q) to (bottom);
 \node[rectangle,draw=none,yshift=10pt] at (current page.south) {
                     \parbox{.5\textwidth}{
                     \begin{figure}
