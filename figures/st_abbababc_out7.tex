@@ -1,0 +1,21 @@
+
+\begin{frame}[fragile,plain] \frametitle{Suffix Tree}
+    \begin{figure}
+        \begin{tikzpicture}[remember picture,overlay,level distance=50pt,->,line width=1.5pt]
+            \tikzstyle{every node}=[draw,circle,inner sep=1pt,minimum size=7.5pt,line width=0.5pt]
+            \tikzstyle{sll}=[bend left,dashed,line width=0.5pt,-{>[length=10pt]}]
+            \tikzstyle{slr}=[bend right,dashed,line width=0.5pt,->]
+            \tikzstyle{level 1}=[sibling distance=100pt]
+            \tikzstyle{level 2}=[level distance=50pt,sibling distance=120pt]
+            \tikzstyle{level 3}=[sibling distance=50pt]
+\node[yshift=-30pt](bottom)at (current page.north) {  } child { node(q) {  } child { node(q0ab) {  } child { node(q0aw) {  } edge from parent node[rectangle,draw=green,fill=white] { $bababc$ }   } child { node(q0ab5aw) {  } edge from parent node[rectangle,draw=green,fill=white] { $abc$ }   }edge from parent node[rectangle,draw=green,fill=white] { $ab$ }   } child { node(q1b) {  } child { node(q1b3aw) {  } edge from parent node[rectangle,draw=green,fill=white] { $ababc$ }   } child { node(q1bw) {  } edge from parent node[rectangle,draw=green,fill=white] { $bababc$ }   }edge from parent node[rectangle,draw=green,fill=white] { $b$ }   }edge from parent node[rectangle,draw=green,fill=white] { $\Sigma$ }   } ;\draw[style=sll](q) to (bottom);\draw[style=sll](q1b) to (q);
+\node[rectangle,draw=none,yshift=10pt] at (current page.south) {
+                    \parbox{.5\textwidth}{
+                    \begin{figure}
+                        \caption{Suffix Tree for ``$abbababc$''}
+                    \end{figure}
+                    }
+            };
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}

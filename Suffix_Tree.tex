@@ -5,6 +5,7 @@
 \usepackage[ruled]{algorithm2e}
 \usepackage{tikz}
 \usetikzlibrary{shapes,snakes}
+\usetikzlibrary{arrows.meta}
 \usepackage{hyperref}
 \usetheme{Warsaw}
 \usecolortheme{crane}
@@ -333,11 +334,37 @@
 
     \section{Suffix Tree}
     \begin{frame}[fragile,plain]\frametitle{Suffix Tree}
-        Look at the figure.
         \begin{definitionblock}{Suffix tree}
             Suffix tree $STree(T)$ of $T$ is a data structure that represents $STrie(T)$ in space linear in the length $|T|$ of $T$
         \end{definitionblock}
     \end{frame}
+
+    \input{figures/st_cacao_out0.tex}
+    \input{figures/st_cacao_out1.tex}
+    \input{figures/st_cacao_out2.tex}
+    \input{figures/st_cacao_out3.tex}
+    \input{figures/st_cacao_out4.tex}
+    \input{figures/st_cacao_out5.tex}
+    \input{figures/st_cacao_out6.tex}
+    \input{figures/st_cacao_out7.tex}
+    \input{figures/st_cacao_out8.tex}
+    \input{figures/st_cacao_out9.tex}
+
+    \input{figures/st_abbababc_out0.tex}
+    \input{figures/st_abbababc_out1.tex}
+    \input{figures/st_abbababc_out2.tex}
+    \input{figures/st_abbababc_out3.tex}
+    \input{figures/st_abbababc_out4.tex}
+    \input{figures/st_abbababc_out5.tex}
+    \input{figures/st_abbababc_out6.tex}
+    \input{figures/st_abbababc_out7.tex}
+    \input{figures/st_abbababc_out8.tex}
+    \input{figures/st_abbababc_out9.tex}
+    \input{figures/st_abbababc_out10.tex}
+    \input{figures/st_abbababc_out11.tex}
+    \input{figures/st_abbababc_out12.tex}
+    \input{figures/st_abbababc_out13.tex}
+    \input{figures/st_abbababc_out14.tex}
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
         \begin{definitionblock}{Explicit states}
@@ -748,6 +775,8 @@
         $\Rightarrow$ \diamonded{1} takes time $\mathcal{O}(n)$.
 
     \end{frame}
+
+
 
     \section{References}
     \begin{frame}[fragile,plain]\frametitle{References}
