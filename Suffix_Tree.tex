@@ -299,7 +299,7 @@
         \end{block}
         Let namely $\overline{zt_i}$ already be a state. \\
         \hfill \break
-        Then $STrie(T^{i-1})$ has to contain state $\overline{z't_i}$ and transition $g(z', t_i) = \overline{z't_i} \ \forall z' = f^j(\bar{z}), j \leq 1$. \\
+        Then $STrie(T^{i-1})$ has to contain state $\overline{z't_i}$ and transition $g(z', t_i) = \overline{z't_i} \ \forall z' = f^j(\bar{z}), j \geq 1$. \\
         In other words, if $\overline{zt_i}$ is a substring of $T_{i-1}$ then every suffix of $\overline{zt_i}$ is a substring of $T_{i-1}$.\\
         \hfill \break
         Such $\bar{z}$ must exist as $\bot$ is the last state on the boundary path that has the $t_i$-transition $\forall t_i$
@@ -616,6 +616,16 @@
     \end{frame}
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
+        \begin{factblock}{Note (not in the paper)}
+            $(s, (k, p))$ in $test$-$and$-$split$ is implicit i.e. $k \leq p$ \\
+            $\Leftrightarrow$ $(s, \epsilon)$ was once the active point \\
+            \hspace{16pt} and previously there were a series of construction iterations for the symbols $t_k\cdots t_p$ which spells the string $w = (k', k' + p - k)$ on the path from $s$\\
+            \hfill \break
+            That's why in line 5 $(k', k' + p - k) = (k, p)$
+        \end{factblock}
+    \end{frame}
+
+    \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
         \LinesNumbered
         \begin{procedure}[H]
             \SetAlgoNoEnd
@@ -638,7 +648,12 @@
             }
         \end{procedure}
         \hfill \break
-        At return, $k$ can become $k', k' \geq k$.
+        Condition in line 4 is true $\Leftrightarrow$ $s$ must go through $s'$ to $r = (s,(k,p))$ \\
+        $\Rightarrow$ string spelled from $s'$ to $r$ is a suffix of $t_k\cdots t_p$. \\
+        \hfill \break
+        At return, $k$ can be increased due to line 5 \\
+        and state $s'$ is the closest explicit ancestor of $r$
+
     \end{frame}
 
     \begin{frame}[fragile,plain]\frametitle{Construction of Suffix Tree}
