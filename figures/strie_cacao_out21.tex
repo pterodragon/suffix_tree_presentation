@@ -1,0 +1,21 @@
+
+\begin{frame}[fragile,plain] \frametitle{Suffix Trie}
+    \begin{figure}
+        \begin{tikzpicture}[remember picture,overlay,level distance=50pt,->,line width=1.5pt]
+            \tikzstyle{every node}=[draw,circle,inner sep=1pt,minimum size=7.5pt,line width=0.5pt]
+            \tikzstyle{sll}=[bend left,dashed,line width=0.5pt,-{>[length=10pt]}]
+            \tikzstyle{slr}=[bend right,dashed,line width=0.5pt,->]
+            \tikzstyle{level 1}=[level distance=30pt,sibling distance=150pt]
+            \tikzstyle{level 2}=[sibling distance=75pt]
+            \tikzstyle{level 3}=[sibling distance=30pt]
+\node[yshift=-30pt](bottom)at (current page.north) {  } child { node(q) {  } child { node(qa) {  } child { node(qac) {  } child { node(qaca) {  } child { node(qacao) {  } edge from parent node[rectangle,draw=green,fill=white] { $o$ }   }edge from parent node[rectangle,draw=green,fill=white] { $a$ }   }edge from parent node[rectangle,draw=green,fill=white,xshift=-5pt] { $c$ }   } child { node(qao) {  } edge from parent node[rectangle,draw=green,fill=white,xshift=5pt] { $o$ }   }edge from parent node[rectangle,draw=green,fill=white,xshift=-5pt] { $a$ }   } child { node(qc) {  } child { node(qca) {  } child { node(qcac) {  } child { node(qcaca) {  } child { node(qcacao) {  } edge from parent node[rectangle,draw=green,fill=white] { $o$ }   }edge from parent node[rectangle,draw=green,fill=white] { $a$ }   }edge from parent node[rectangle,draw=green,fill=white,xshift=-5pt] { $c$ }   } child { node(qcao) {  } edge from parent node[rectangle,draw=green,fill=white,xshift=5pt] { $o$ }   }edge from parent node[rectangle,draw=green,fill=white] { $a$ }   }edge from parent node[rectangle,draw=green,fill=white,xshift=5pt] { $c$ }   }edge from parent node[rectangle,draw=green,fill=white] { $\Sigma$ }   } ;\draw[style=sll,draw opacity=0.5](qcaca) to (qaca);\draw[style=sll,draw opacity=0.5](qaca) to (qca);\draw[style=sll,draw opacity=0.5](qca) to (qa);\draw[style=sll,draw opacity=0.5](qa) to (q);\draw[style=sll,draw opacity=0.5](q) to (bottom);\draw[style=sll](qcacao) to (qacao);\draw[style=sll](qacao) to (qcao);\draw[style=sll](qcao) to (qao);
+\node[rectangle,draw=none,yshift=10pt] at (current page.south) {
+                    \parbox{.5\textwidth}{
+                    \begin{figure}
+                        \caption{Suffix Trie for ``$cacao$''}
+                    \end{figure}
+                    }
+            };
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}

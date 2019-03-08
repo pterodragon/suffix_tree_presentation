@@ -1,0 +1,21 @@
+
+\begin{frame}[fragile,plain] \frametitle{Suffix Trie}
+    \begin{figure}
+        \begin{tikzpicture}[remember picture,overlay,level distance=50pt,->,line width=1.5pt]
+            \tikzstyle{every node}=[draw,circle,inner sep=1pt,minimum size=7.5pt,line width=0.5pt]
+            \tikzstyle{sll}=[bend left,dashed,line width=0.5pt,-{>[length=10pt]}]
+            \tikzstyle{slr}=[bend right,dashed,line width=0.5pt,->]
+            \tikzstyle{level 1}=[level distance=30pt,sibling distance=150pt]
+            \tikzstyle{level 2}=[sibling distance=75pt]
+            \tikzstyle{level 3}=[sibling distance=30pt]
+\node[yshift=-30pt](bottom)at (current page.north) {  } child { node(q) {  } child { node(qa) {  } child { node(qac) {  } edge from parent node[rectangle,draw=green,fill=white] { $c$ }   }edge from parent node[rectangle,draw=green,fill=white,xshift=-5pt] { $a$ }   } child { node(qc) {  } child { node(qca) {  } child { node(qcac) {  } edge from parent node[rectangle,draw=green,fill=white] { $c$ }   }edge from parent node[rectangle,draw=green,fill=white] { $a$ }   }edge from parent node[rectangle,draw=green,fill=white,xshift=5pt] { $c$ }   }edge from parent node[rectangle,draw=green,fill=white] { $\Sigma$ }   } ;\draw[style=sll,draw opacity=0.5](qca) to (qa);\draw[style=sll,draw opacity=0.5](qa) to (q);\draw[style=sll,draw opacity=0.5](q) to (bottom);\draw[style=sll](qcac) to (qac);\draw[style=sll](qac) to (qc);
+\node[rectangle,draw=none,yshift=10pt] at (current page.south) {
+                    \parbox{.5\textwidth}{
+                    \begin{figure}
+                        \caption{Suffix Trie for ``$cacao$''}
+                    \end{figure}
+                    }
+            };
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
