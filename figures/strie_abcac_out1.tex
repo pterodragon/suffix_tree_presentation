@@ -1,0 +1,21 @@
+
+\begin{frame}[fragile,plain] \frametitle{Suffix Trie}
+    \begin{figure}
+        \begin{tikzpicture}[remember picture,overlay,level distance=50pt,->,line width=1.5pt]
+            \tikzstyle{every node}=[draw,circle,inner sep=1pt,minimum size=7.5pt,line width=0.5pt]
+            \tikzstyle{sll}=[bend left,dashed,line width=0.5pt,-{>[length=10pt]}]
+            \tikzstyle{slr}=[bend right,dashed,line width=0.5pt,->]
+            \tikzstyle{level 1}=[level distance=30pt,sibling distance=150pt]
+            \tikzstyle{level 2}=[sibling distance=75pt]
+            \tikzstyle{level 3}=[sibling distance=30pt]
+\node[yshift=-30pt](bottom)at (current page.north) {  } child { node[draw=red](q) {  } child { node[draw=red](qa) {  } edge from parent node[rectangle,draw=green,fill=white] { $a$ }   }edge from parent node[rectangle,draw=green,fill=white] { $\Sigma$ }   } ;\draw[style=sll,draw opacity=0.5](q) to (bottom);
+\node[rectangle,draw=none,yshift=10pt] at (current page.south) {
+                    \parbox{.5\textwidth}{
+                    \begin{figure}
+                        \caption{Suffix Trie for ``$abcac$''}
+                    \end{figure}
+                    }
+            };
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}

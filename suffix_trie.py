@@ -29,10 +29,10 @@ class SuffixTrie:
             self.i = i
             self.algorithm1(t)
 
-    def write(self, all_sl=False):
+    def write(self, all_sl=False, essen=True):
         if self.write_tex:
             with open(f'strie_{self.T}_out{self.counter}.tex', 'w') as f:
-                f.write(str(self.to_tikz_figure(all_sl)))
+                f.write(str(self.to_tikz_figure(all_sl, essen=essen)))
             self.counter += 1
 
     def algorithm1(self, t):
@@ -69,24 +69,33 @@ class SuffixTrie:
         if s in self.g:
             return self.g[s].get(t)
 
-    def to_tikz_figure(self, all_sl=False):
+    def to_tikz_figure(self, all_sl=False, essen=True):
         def sanitize(x):
             return x.replace('#', 'q').replace('_', 'w')
 
-        def dfs_visit(nx_node, tikz_node, no_node_text=False, level=0):
+        def is_essen(node):
+            tops = ['#' + self.T[:x] for x in range(len(self.T) + 1)]
+            return node in tops or \
+                len([y for y in self.f.values() if y == node]) > 1
+
+        def dfs_visit(nx_node, tikz_node, no_node_text=False,
+                      level=0):
             nx_childs_info = self.graph[nx_node]
             nx_node_childs = adj_list.get(nx_node, [])
             shift_start = (len(nx_node_childs) - 1) * -5
             for i, nx_node_child in enumerate(sorted(nx_node_childs)):
                 shift = shift_start + 10 * i
-                new_tikz_child = TikzChild(TikzNode(
-                    text='' if no_node_text else nx_node_child,
-                    label=sanitize(nx_node_child),
-                    edge_from_parent=True,
-                    edge_node=TikzNode(
-                        text=f"{nx_childs_info[nx_node_child][0]['label']}",
-                        attr=['rectangle', 'draw=green', 'fill=white'] +
-                        ([f'xshift={shift}pt'] if shift else[]))))
+                new_tikz_child = TikzChild(
+                    TikzNode(
+                        text='' if no_node_text else nx_node_child,
+                        attr=['draw=red']
+                        if essen and is_essen(nx_node_child) else [],
+                        label=sanitize(nx_node_child),
+                        edge_from_parent=True,
+                        edge_node=TikzNode(
+                            text=f"{nx_childs_info[nx_node_child][0]['label']}",  # NOQA
+                            attr=['rectangle', 'draw=green', 'fill=white'] +
+                            ([f'xshift={shift}pt'] if shift else[]))))
                 tikz_node.childs.append(new_tikz_child)
                 dfs_visit(nx_node_child, new_tikz_child.node, no_node_text,
                           level+1)
