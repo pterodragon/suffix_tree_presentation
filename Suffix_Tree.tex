@@ -100,34 +100,33 @@
 \input{figures/strie_cacao_out24.tex}
 \input{figures/strie_cacao_out25.tex}
 
-\input{figures/strie_abcac_out0.tex}
-\input{figures/strie_abcac_out1.tex}
-\input{figures/strie_abcac_out2.tex}
-\input{figures/strie_abcac_out3.tex}
-\input{figures/strie_abcac_out4.tex}
-\input{figures/strie_abcac_out5.tex}
-\input{figures/strie_abcac_out6.tex}
-\input{figures/strie_abcac_out7.tex}
-\input{figures/strie_abcac_out8.tex}
-\input{figures/strie_abcac_out9.tex}
-\input{figures/strie_abcac_out10.tex}
-\input{figures/strie_abcac_out11.tex}
-\input{figures/strie_abcac_out12.tex}
-\input{figures/strie_abcac_out13.tex}
-\input{figures/strie_abcac_out14.tex}
-\input{figures/strie_abcac_out15.tex}
-\input{figures/strie_abcac_out16.tex}
-\input{figures/strie_abcac_out17.tex}
-\input{figures/strie_abcac_out18.tex}
-\input{figures/strie_abcac_out19.tex}
-\input{figures/strie_abcac_out20.tex}
-\input{figures/strie_abcac_out21.tex}
-\input{figures/strie_abcac_out22.tex}
-\input{figures/strie_abcac_out23.tex}
-\input{figures/strie_abcac_out24.tex}
-\input{figures/strie_abcac_out25.tex}
-\input{figures/strie_abcac_out26.tex}
-\input{figures/strie_abcac_out27.tex}
+\input{figures/strie_abcbc_out0.tex}
+\input{figures/strie_abcbc_out1.tex}
+\input{figures/strie_abcbc_out2.tex}
+\input{figures/strie_abcbc_out3.tex}
+\input{figures/strie_abcbc_out4.tex}
+\input{figures/strie_abcbc_out5.tex}
+\input{figures/strie_abcbc_out6.tex}
+\input{figures/strie_abcbc_out7.tex}
+\input{figures/strie_abcbc_out8.tex}
+\input{figures/strie_abcbc_out9.tex}
+\input{figures/strie_abcbc_out10.tex}
+\input{figures/strie_abcbc_out11.tex}
+\input{figures/strie_abcbc_out12.tex}
+\input{figures/strie_abcbc_out13.tex}
+\input{figures/strie_abcbc_out14.tex}
+\input{figures/strie_abcbc_out15.tex}
+\input{figures/strie_abcbc_out16.tex}
+\input{figures/strie_abcbc_out17.tex}
+\input{figures/strie_abcbc_out18.tex}
+\input{figures/strie_abcbc_out19.tex}
+\input{figures/strie_abcbc_out20.tex}
+\input{figures/strie_abcbc_out21.tex}
+\input{figures/strie_abcbc_out22.tex}
+\input{figures/strie_abcbc_out23.tex}
+\input{figures/strie_abcbc_out24.tex}
+\input{figures/strie_abcbc_out25.tex}
+
 \begin{frame}[fragile,plain] \frametitle{Construction of Suffix Trie}
     \begin{definitionblock}{String}
         Let $T = t_1t_2\cdots t_n$ be a string over alphabet $\Sigma$
@@ -173,10 +172,10 @@
         \hfill \break
         Denote $\bar{x}$ the state that corresponds to a substring $x$
         \hfill \break
-        Shorthand: $\bar{x} \sim x$
+        Shorthand: $\bar{x} \leftrightarrow x$
         \begin{itemize}
-            \item $root \sim \epsilon$
-            \item set $F$ of final states $\sim \sigma(T) $
+            \item $root \leftrightarrow \epsilon$
+            \item set $F$ of final states $\leftrightarrow \sigma(T) $
         \end{itemize}
 
     \end{definitionblock}

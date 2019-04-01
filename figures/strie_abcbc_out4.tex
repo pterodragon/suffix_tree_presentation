@@ -8,11 +8,11 @@
             \tikzstyle{level 1}=[level distance=30pt,sibling distance=150pt]
             \tikzstyle{level 2}=[sibling distance=75pt]
             \tikzstyle{level 3}=[sibling distance=30pt]
-\node[yshift=-30pt](bottom)at (current page.north) {  } child { node[draw=red,double](q) {  } edge from parent node[rectangle,draw=green,fill=white] { $\Sigma$ }   } ;\draw[style=sll,draw opacity=0.5](q) to (bottom);
+\node[yshift=-30pt](bottom)at (current page.north) {  } child { node[draw=red,double](q) {  } child { node[draw=red](qa) {  } child { node[draw=red,double](qab) {  } edge from parent node[rectangle,draw=green,fill=white] { $b$ }   }edge from parent node[rectangle,draw=green,fill=white,xshift=-5pt] { $a$ }   } child { node[double](qb) {  } edge from parent node[rectangle,draw=green,fill=white,xshift=5pt] { $b$ }   }edge from parent node[rectangle,draw=green,fill=white] { $\Sigma$ }   } ;\draw[style=sll,draw opacity=0.5](qa) to (q);\draw[style=sll,draw opacity=0.5](q) to (bottom);
 \node[rectangle,draw=none,yshift=10pt] at (current page.south) {
                     \parbox{.5\textwidth}{
                     \begin{figure}
-                        \caption{Suffix Trie for ``$cacao$''}
+                        \caption{Suffix Trie for ``$abcbc$''}
                     \end{figure}
                     }
             };

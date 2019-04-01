@@ -40,6 +40,7 @@ class SuffixTrie:
         oldrp = None
         while not self.getTransition(r, t):
             rp = r + t
+            self.Q.append(rp)
             self.updateG(r, t, rp)
             self.write()
             if r != self.top:
@@ -69,7 +70,7 @@ class SuffixTrie:
         if s in self.g:
             return self.g[s].get(t)
 
-    def to_tikz_figure(self, all_sl=False, essen=True):
+    def to_tikz_figure(self, all_sl=False, essen=True, accept=True):
         def sanitize(x):
             return x.replace('#', 'q').replace('_', 'w')
 
@@ -78,6 +79,10 @@ class SuffixTrie:
             return node in tops or \
                 len([y for y in self.f.values() if y == node]) > 1
 
+        def is_accept(node):
+            ends = ['#' + self.T[x:self.i + 1] for x in range(len(self.T) + 1)]
+            return node in ends
+
         def dfs_visit(nx_node, tikz_node, no_node_text=False,
                       level=0):
             nx_childs_info = self.graph[nx_node]
@@ -85,11 +90,15 @@ class SuffixTrie:
             shift_start = (len(nx_node_childs) - 1) * -5
             for i, nx_node_child in enumerate(sorted(nx_node_childs)):
                 shift = shift_start + 10 * i
+                attr = []
+                if essen and is_essen(nx_node_child):
+                    attr.append('draw=red')
+                if is_accept(nx_node_child):
+                    attr.append('double')
                 new_tikz_child = TikzChild(
                     TikzNode(
                         text='' if no_node_text else nx_node_child,
-                        attr=['draw=red']
-                        if essen and is_essen(nx_node_child) else [],
+                        attr=attr,
                         label=sanitize(nx_node_child),
                         edge_from_parent=True,
                         edge_node=TikzNode(
