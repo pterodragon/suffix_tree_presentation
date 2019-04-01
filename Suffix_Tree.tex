@@ -414,7 +414,7 @@
     Again, represent string $w$ as a pair $(k, p)$ of pointers s.t. $t_k \cdots t_p = w$. \\
     Then, reference pair $(s, w)$ gets form $(s, (k, p))$. $(s, \epsilon) = (s, (p + 1, p))$ \\
     \begin{alertblock}{Caution}
-        No contraints on $k$ and $p$ as long as $w$ spells the string
+        No constraints on $k$ and $p$ as long as $w$ spells the string
     \end{alertblock}
 \end{frame}
 
@@ -627,7 +627,7 @@
         \hfill \break
         $\because$ By the construction process, \\
         \begin{itemize}
-            \item $t_j\cdots t_{i-1}$ has occured before $\Leftrightarrow s_j$ is not a leaf and \\
+            \item $t_j\cdots t_{i-1}$ has occurred before $\Leftrightarrow s_j$ is not a leaf and \\
             \item $j$ is smallest meaning $t_j\cdots t_{i-1}$ is longest
         \end{itemize}
     \end{factblock}
@@ -707,7 +707,7 @@
     \hspace{24pt} repeatedly traversing the suffix link path from the present active point to the end point and\\
     \hspace{24pt} creating the new branches by update and\\
     \hspace{24pt} then finding the next active point by taking a transition from the end point\\
-    \begin{definitionblock}{Visted States}
+    \begin{definitionblock}{Visited States}
         Call the states (reference pairs) on these paths the \underline{visited states}
     \end{definitionblock}
 \end{frame}
